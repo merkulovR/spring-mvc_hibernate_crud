@@ -43,16 +43,16 @@ public class UserController {
         return "redirect:/users";
     }
 
-//    Я не понимаю, почему это не работает, перепробовал уже все, что видел в интернете, все, что в слаке предлагали...
-//    требуется помощь!!! Все работает, кроме патча, он при любых условиях выдает мне новую запись в БД вместо обновления старой.
     @GetMapping("/user-update/{id}")
     public String updateUserForm(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("user", userService.getUser(id));
+        User user = userService.getUser(id);
+        model.addAttribute("user", user);
         return "/user-update";
     }
 
-    @PatchMapping("/user-update")
-    public String updateUser(@ModelAttribute("user") User user) {
+    @PutMapping ("/user-update")
+    public String updateUser(User user) {
+        System.out.println("before");
         userService.update(user);
         return "redirect:/users";
     }

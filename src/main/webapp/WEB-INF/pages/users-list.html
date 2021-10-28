@@ -12,6 +12,7 @@
     <table border="1">
         <thead>
         <tr>
+            <th>ID</th>
             <th>First name</th>
             <th>Last name</th>
             <th>E-mail</th>
@@ -20,6 +21,7 @@
         </thead>
         <tbody>
             <tr th:each="user : ${users}">
+            <td th:text="${user.getId()}"></td>
             <td th:text="${user.getName()}"></td>
             <td th:text="${user.getLastName()}"></td>
             <td th:text="${user.getEmail()}"></td>
