@@ -51,7 +51,7 @@ public class UserController {
     }
 
     @PutMapping ("/user-update")
-    public String updateUser(User user) {
+    public String updateUser(@ModelAttribute("user") User user) {
         System.out.println("before");
         userService.update(user);
         return "redirect:/users";
